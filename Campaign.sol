@@ -61,6 +61,7 @@ contract Campaign {
             newFunder.funder = msg.sender;
             newFunder.amount = msg.value;
             funderStructs.push(newFunder);
+        LogContribution(msg.sender,msg.value);
         return true;
 
     }
@@ -77,6 +78,7 @@ contract Campaign {
             uint amount = this.balance;
             // send to the owner
             owner.send(amount);
+        LogWithdrawal(owner,this.balance);
         return true;
 
     }
@@ -89,6 +91,7 @@ contract Campaign {
             uint funderCount = funderStructs.length;
             for (uint i = 0; i < funderCount; i++) {
                 funderStructs[i].funder.send(funderStructs[i].amount);
+                LogRefundSent(funderStructs[i].funder,funderStructs[i].amount);
             }
         return true;
     }
