@@ -17,6 +17,12 @@ contract Campaign {
     }
     // All the funders list
     FundersStruct[] public funderStructs;
+    /**
+    * Creating Events
+    */
+    event LogContribution(address sender, uint amount);
+    event LogRefundSent(address funder, uint amount);
+    event LogWithdrawal(address beneficiary, unit amount);
 
     /**
     * @constructor
