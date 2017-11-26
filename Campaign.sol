@@ -22,7 +22,7 @@ contract Campaign {
     */
     event LogContribution(address sender, uint amount);
     event LogRefundSent(address funder, uint amount);
-    event LogWithdrawal(address beneficiary, unit amount);
+    event LogWithdrawal(address beneficiary, uint amount);
 
     /**
     * @constructor
